@@ -6,7 +6,7 @@ url = "https://books.toscrape.com/"
 response = requests.get(url)
 print(response.status_code)
 
-soup = BeautifulSoup(response.text, "html.parser")
+soup = BeautifulSoup(response.content, "html.parser")
 
 books = soup.find_all("article", class_="product_pod")
 print(f"{len(books)} kitap bulundu")
@@ -19,5 +19,5 @@ for book in books:
     data.append({"title": title, "price": price, "availability": availability})
 
 df = pd.DataFrame(data)
-df.to_csv("books.csv", index=False)
+df.to_csv("books.csv", index=False, encoding="utf-8-sig")
 print(df.head())
