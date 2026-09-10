@@ -12,4 +12,4 @@ Scrapes the book listing page, extracts the title, price, and stock availability
 
 ## Running it
 pip install requests beautifulsoup4 pandas
-python scraper.py
+python scraper.py 
